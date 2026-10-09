@@ -7,8 +7,9 @@
   let lenis = null;
   if (window.Lenis && !reduceMotion) {
     lenis = new window.Lenis({
-      lerp: 0.075,          // lower = slower, silkier glide
-      wheelMultiplier: 0.9,
+      duration: 1.35,                                       // longer = slower, heavier glide
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // expo-out: quick start, long soft landing
+      wheelMultiplier: 0.95,
       smoothWheel: true,
     });
     const raf = (time) => {
@@ -98,6 +99,12 @@
   const heroRosette = document.getElementById("rosette");
   if (heroRosette) buildRosette(heroRosette, 0.2);
 
+  // stop the slow spin while a rosette is off screen
+  const spinWatch = new IntersectionObserver((entries) => {
+    entries.forEach((e) => e.target.classList.toggle("is-paused", !e.isIntersecting));
+  });
+  document.querySelectorAll(".rosette").forEach((svg) => spinWatch.observe(svg));
+
   // contact rosette draws when it scrolls into view
   document.querySelectorAll("[data-rosette]").forEach((svg) => {
     const io = new IntersectionObserver((entries) => {
@@ -142,23 +149,26 @@
 
   /* ---------- scroll reveal ---------- */
 
+  // number each skill tag so they arrive one after another
+  document.querySelectorAll(".skillrow .tags").forEach((list) => {
+    [...list.children].forEach((li, i) => li.style.setProperty("--t", i));
+  });
+
   const revealEls = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window) {
+    // only elements that enter in the same moment are staggered,
+    // so a row scrolled into view on its own never waits
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-in");
-        io.unobserve(entry.target);
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      entries
+        .filter((entry) => entry.isIntersecting)
+        .forEach((entry, i) => {
+          entry.target.style.setProperty("--rd", `${Math.min(i, 5) * 0.09}s`);
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
 
-    // stagger siblings that enter together (skill rows, entries)
-    revealEls.forEach((el) => {
-      const siblings = [...el.parentElement.children].filter((c) => c.hasAttribute("data-reveal"));
-      const idx = siblings.indexOf(el);
-      if (siblings.length > 2) el.style.setProperty("--rd", `${Math.min(idx, 6) * 0.07}s`);
-      io.observe(el);
-    });
+    revealEls.forEach((el) => io.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add("is-in"));
   }
@@ -190,7 +200,9 @@
     nav.classList.toggle("is-hidden", !menuOpen && y > lastY && y > 400);
     lastY = y;
   };
-  window.addEventListener("scroll", onScroll, { passive: true });
+  // with Lenis, run in step with its frame loop instead of the raw scroll event
+  if (lenis) lenis.on("scroll", onScroll);
+  else window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
   const navAnchors = [...links.querySelectorAll("a")];
