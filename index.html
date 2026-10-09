@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hamza Taweel — Frontend Developer</title>
+  <meta name="description" content="Hamza Taweel is a frontend developer from Hebron, Palestine, building responsive interfaces with React and Next.js." />
+  <meta name="theme-color" content="#0d1830" />
+  <meta property="og:title" content="Hamza Taweel — Frontend Developer" />
+  <meta property="og:description" content="Frontend developer from Hebron, Palestine. React, Next.js, ASP.NET Core." />
+  <meta property="og:image" content="assets/hamza.jpg" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__progress" id="progress" aria-hidden="true"></div>
+    <div class="nav__inner wrap">
+      <a class="brand" href="#top" aria-label="Hamza Taweel, back to top">
+        <svg class="brand__star" viewBox="-10 -10 20 20" aria-hidden="true">
+          <rect x="-6" y="-6" width="12" height="12" />
+          <rect x="-6" y="-6" width="12" height="12" transform="rotate(45)" />
+        </svg>
+        <span>Hamza Taweel</span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#path">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn--ghost nav__cv" href="assets/Hamza_Taweel_CV.pdf" download>Download CV</a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero wrap" id="top">
+      <div class="hero__text">
+        <p class="eyebrow load" style="--d:.1s">Frontend developer · Hebron, Palestine</p>
+        <h1 class="hero__name" aria-label="Hamza Taweel">
+          <span class="line"><span class="split">Hamza</span></span>
+          <span class="line"><span class="split">Taweel</span></span>
+        </h1>
+        <p class="hero__ar load" style="--d:.9s" lang="ar" dir="rtl">حمزة طويل</p>
+        <p class="hero__lede load" style="--d:1.05s">
+          I build interfaces people rely on every day — like <strong>Enzyme</strong>, the platform dietary clinics
+          run on. React and Next.js on the front; ASP.NET Core and SQL when the project needs the whole stack.
+        </p>
+        <div class="hero__cta load" style="--d:1.2s">
+          <a class="btn btn--solid" href="#work">See my work</a>
+          <a class="btn btn--ghost" href="mailto:baltwyl18@gmail.com">Email me</a>
+        </div>
+        <p class="status load" style="--d:1.35s"><span class="status__dot"></span>Open to frontend roles — remote or on-site</p>
+      </div>
+
+      <div class="hero__visual" id="heroVisual">
+        <svg class="rosette" id="rosette" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+        <figure class="arch">
+          <img src="assets/hamza.jpg" alt="Hamza Taweel in a navy suit, standing on limestone steps in front of a carved wooden door" width="1148" height="1588" fetchpriority="high" />
+        </figure>
+      </div>
+
+      <a class="scrollcue load" style="--d:1.6s" href="#about" aria-label="Scroll to About">
+        <span>Scroll</span><i></i>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section wrap about" id="about">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">About</p>
+        <h2 class="section__title">Computer science graduate, building for real users.</h2>
+      </header>
+      <div class="about__grid">
+        <div class="about__body" data-reveal>
+          <p>
+            I graduated in Computer Science from Hebron University in 2025 with an 88% GPA. I then spent 480 hours
+            as a frontend intern at IzTechValley through Gaza Sky Geeks' Elevate program, where I built Enzyme
+            alongside a team and the nutritional care providers who use it.
+          </p>
+          <p>
+            I care about layouts that hold up on every screen, dashboards that stay readable when the data gets dense,
+            and handing over work that is ready for production. I use AI tools like Claude Code and Codex to move faster,
+            and I keep learning — right now that's Agile and leadership on a fully funded Chingu scholarship.
+          </p>
+        </div>
+        <dl class="facts" data-reveal>
+          <div><dt>Based in</dt><dd>Hebron, Palestine</dd></div>
+          <div><dt>Studied</dt><dd>BSc Computer Science, Hebron University, 2025</dd></div>
+          <div><dt>Speaks</dt><dd>Arabic (native), English (professional)</dd></div>
+          <div><dt>Now</dt><dd>Agile MBA scholarship, Chingu</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section wrap work" id="work">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Selected work · 5 projects · 3 live</p>
+        <h2 class="section__title">Things I've built.</h2>
+      </header>
+
+      <div class="projects">
+        <!-- Enzyme -->
+        <article class="project" data-reveal>
+          <div class="project__visual">
+            <figure class="browser browser--static">
+              <span class="browser__bar"><i></i><i></i><i></i><span class="browser__url">Enzyme — clinic sign-in</span></span>
+              <span class="browser__view">
+                <img src="assets/projects/enzyme.jpg" alt="Enzyme sign-in screen in Arabic, with an illustration of a dietitian reviewing a meal plan with a client" width="1917" height="1077" loading="lazy" />
+              </span>
+            </figure>
+          </div>
+          <div class="project__info">
+            <p class="project__kicker">Dietary clinic management platform</p>
+            <h3 class="project__title">Enzyme</h3>
+            <p class="project__role">Frontend developer · IzTechValley · <span class="live">In use at clinics</span></p>
+            <p class="project__desc">
+              A platform dietary clinics use to run their day-to-day work. I built the responsive frontend in Next.js,
+              wired it to the API, and worked directly with nutritional care providers to shape what each screen needed.
+            </p>
+            <ul class="tags"><li>Next.js</li><li>React</li><li>REST APIs</li><li>Responsive UI</li></ul>
+          </div>
+        </article>
+
+        <!-- Masar -->
+        <article class="project project--flip" data-reveal>
+          <div class="project__visual">
+            <a class="browser" href="https://masar-landingpage.vercel.app/" target="_blank" rel="noopener" aria-label="Open the Masar landing page in a new tab">
+              <span class="browser__bar"><i></i><i></i><i></i><span class="browser__url">masar-landingpage.vercel.app</span></span>
+              <span class="browser__view" data-preview>
+                <iframe src="https://masar-landingpage.vercel.app/" title="Masar landing page preview" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
+              </span>
+              <span class="browser__hint">Visit live site ↗</span>
+            </a>
+          </div>
+          <div class="project__info">
+            <p class="project__kicker">Landing page for an AI road-safety app</p>
+            <h3 class="project__title">Masar <span class="project__ar" lang="ar">مسار</span></h3>
+            <p class="project__role">Frontend developer · <span class="live">Live</span></p>
+            <p class="project__desc">
+              Masar spots potholes and road defects in driving footage and sends them to repair crews. I built its
+              Arabic, right-to-left landing page — the product explained in three steps, an app gallery, and a demo
+              request form for road agencies.
+            </p>
+            <ul class="tags"><li>Next.js</li><li>Arabic · RTL</li><li>Responsive UI</li></ul>
+            <a class="link" href="https://masar-landingpage.vercel.app/" target="_blank" rel="noopener">masar-landingpage.vercel.app ↗</a>
+          </div>
+        </article>
+
+        <!-- Clinical Training System -->
+        <article class="project" data-reveal>
+          <div class="project__visual">
+            <figure class="browser browser--static">
+              <span class="browser__bar"><i></i><i></i><i></i><span class="browser__url">Medical Training System — Hebron University</span></span>
+              <span class="browser__view">
+                <img src="assets/projects/clinical.jpg" alt="Sign-in screen of the Medical Training System, with the Hebron University Faculty of Medicine logo" width="1348" height="605" loading="lazy" />
+              </span>
+            </figure>
+          </div>
+          <div class="project__info">
+            <p class="project__kicker">Clinical training management platform</p>
+            <h3 class="project__title">Clinical Training System</h3>
+            <p class="project__role">Full stack developer · Graduation project</p>
+            <p class="project__desc">
+              A platform for managing clinical training at the Faculty of Human Medicine. I designed the SQL Server
+              schema, built the REST API in ASP.NET Core, made the responsive interface, generated reports with
+              Crystal Reports, and deployed it.
+            </p>
+            <ul class="tags"><li>ASP.NET Core</li><li>C#</li><li>SQL Server</li><li>Crystal Reports</li></ul>
+          </div>
+        </article>
+
+        <!-- Haven -->
+        <article class="project project--flip" data-reveal>
+          <div class="project__visual">
+            <a class="browser" href="https://haven-inspired.vercel.app/" target="_blank" rel="noopener" aria-label="Open the Haven site in a new tab">
+              <span class="browser__bar"><i></i><i></i><i></i><span class="browser__url">haven-inspired.vercel.app</span></span>
+              <span class="browser__view" data-preview>
+                <iframe src="https://haven-inspired.vercel.app/" title="Haven site preview" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
+              </span>
+              <span class="browser__hint">Visit live site ↗</span>
+            </a>
+          </div>
+          <div class="project__info">
+            <p class="project__kicker">Website for a luxury home builder</p>
+            <h3 class="project__title">Haven</h3>
+            <p class="project__role">Frontend developer · <span class="live">Live</span></p>
+            <p class="project__desc">
+              A recreation inspired by Haven Constructions, a Melbourne custom home builder. An exercise in editorial
+              layout, large imagery, and quiet motion — rebuilding the feel of a premium brand site from scratch.
+            </p>
+            <ul class="tags"><li>Next.js</li><li>Editorial layout</li><li>Responsive UI</li></ul>
+            <a class="link" href="https://haven-inspired.vercel.app/" target="_blank" rel="noopener">haven-inspired.vercel.app ↗</a>
+            <p class="project__credit">Inspired by <a href="https://www.havenconstructions.com.au/" target="_blank" rel="noopener">havenconstructions.com.au</a></p>
+          </div>
+        </article>
+
+        <!-- Matjirha -->
+        <article class="project" data-reveal>
+          <div class="project__visual">
+            <a class="plate plate--tiers" href="https://matjerah.dragontech.site/" target="_blank" rel="noopener" aria-label="Open Matjirha in a new tab">
+              <span class="plate__badge"><span class="status__dot"></span>Live · Store plans</span>
+              <span class="plate__name">Matjirha <span class="plate__ar" lang="ar">متجرها</span></span>
+              <span class="tiers" aria-hidden="true"><i></i><i class="is-mid"></i><i></i></span>
+              <span class="browser__hint">Visit live site ↗</span>
+            </a>
+          </div>
+          <div class="project__info">
+            <p class="project__kicker">Online store builder with flexible plans</p>
+            <h3 class="project__title">Matjirha <span class="project__ar" lang="ar">متجرها</span></h3>
+            <p class="project__role">Frontend developer · <span class="live">Live</span></p>
+            <p class="project__desc">
+              Matjirha lets merchants build their own online store and pay only for what they use. I built the Vue.js
+              frontend on top of a Laravel API — including the plans page, where each tier's features are laid out so
+              the differences are clear at a glance, from phone to desktop.
+            </p>
+            <ul class="tags"><li>Vue.js</li><li>Laravel API</li><li>Arabic · RTL</li><li>Responsive UI</li></ul>
+            <a class="link" href="https://matjerah.dragontech.site/" target="_blank" rel="noopener">matjerah.dragontech.site ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="work__more" data-reveal>
+        More on GitHub — <a class="link" href="https://github.com/Hamza-Taweel" target="_blank" rel="noopener">github.com/Hamza-Taweel ↗</a>
+      </p>
+    </section>
+
+    <!-- PATH -->
+    <section class="section wrap path" id="path">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Experience &amp; education</p>
+        <h2 class="section__title">Where I've learned the craft.</h2>
+      </header>
+
+      <div class="path__grid">
+        <div class="path__col">
+          <h3 class="path__label" data-reveal>Experience</h3>
+          <article class="entry" data-reveal>
+            <p class="entry__when">Jun – Sep 2026 · 480 hours · Paid program</p>
+            <h4 class="entry__title">Frontend Developer Intern</h4>
+            <p class="entry__org">IzTechValley — Elevate Program by Gaza Sky Geeks</p>
+            <ul class="entry__list">
+              <li>Built responsive landing pages and user interfaces.</li>
+              <li>Built Enzyme, a dietary clinic management platform in Next.js, now used by clinics.</li>
+              <li>Worked with cross-functional teams and nutritional care providers to ship production-ready software.</li>
+              <li>Awarded an official internship certificate and a recommendation letter.</li>
+            </ul>
+          </article>
+          <article class="entry" data-reveal>
+            <p class="entry__when">Feb – Apr 2024 · 3 months</p>
+            <h4 class="entry__title">Network &amp; Python Trainee</h4>
+            <p class="entry__org">Smart University College for Modern Education</p>
+            <ul class="entry__list">
+              <li>Practical training in Python programming and core networking principles.</li>
+              <li>Configured network tools, connection protocols, and infrastructure essentials.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="path__col">
+          <h3 class="path__label" data-reveal>Education</h3>
+          <article class="entry" data-reveal>
+            <p class="entry__when">Q4 2026 · Six weeks · <span class="live">In progress</span></p>
+            <h4 class="entry__title">Agile MBA — Fully funded scholarship</h4>
+            <p class="entry__org">Chingu</p>
+            <ul class="entry__list">
+              <li>Agile methodologies, leadership, teamwork, and business fundamentals.</li>
+            </ul>
+          </article>
+          <article class="entry" data-reveal>
+            <p class="entry__when">Graduated 2025 · GPA 88%</p>
+            <h4 class="entry__title">BSc Computer Science</h4>
+            <p class="entry__org">Hebron University</p>
+            <ul class="entry__list">
+              <li>Graduation project: Clinical Training Management System for the Faculty of Human Medicine.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section wrap skills" id="skills">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Toolkit</p>
+        <h2 class="section__title">What I work with.</h2>
+      </header>
+      <div class="skillrows">
+        <div class="skillrow" data-reveal>
+          <h3>Frameworks &amp; libraries</h3>
+          <ul class="tags"><li>React</li><li>Next.js</li><li>Vue.js</li><li>React Native</li><li>ASP.NET Core</li><li>Tailwind CSS</li><li>Bootstrap</li><li>Redux</li><li>React Router</li><li>TanStack Table</li><li>Zod</li></ul>
+        </div>
+        <div class="skillrow" data-reveal>
+          <h3>Languages</h3>
+          <ul class="tags"><li>TypeScript</li><li>JavaScript</li><li>C#</li><li>SQL</li><li>Python</li><li>PHP</li><li>Java</li><li>C++</li></ul>
+        </div>
+        <div class="skillrow" data-reveal>
+          <h3>Web</h3>
+          <ul class="tags"><li>HTML5</li><li>CSS3</li><li>REST APIs</li><li>Responsive design</li><li>Authentication</li><li>Authorization</li><li>JWT</li></ul>
+        </div>
+        <div class="skillrow" data-reveal>
+          <h3>Databases</h3>
+          <ul class="tags"><li>PostgreSQL</li><li>SQL Server</li><li>MySQL</li><li>Oracle Database</li></ul>
+        </div>
+        <div class="skillrow" data-reveal>
+          <h3>Tools &amp; platforms</h3>
+          <ul class="tags"><li>Git</li><li>GitHub</li><li>Vite</li><li>npm</li><li>Bun</li><li>Postman</li><li>Swagger / OpenAPI</li><li>Vercel</li><li>Netlify</li></ul>
+        </div>
+        <div class="skillrow" data-reveal>
+          <h3>AI-assisted development</h3>
+          <ul class="tags"><li>Claude Code</li><li>Codex</li><li>Antigravity</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section wrap contact" id="contact">
+      <div class="contact__card" data-reveal>
+        <svg class="rosette rosette--small" data-rosette viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+        <p class="eyebrow">Contact</p>
+        <h2 class="contact__title">Have a role or a project in mind?</h2>
+        <p class="contact__sub">Email is the fastest way to reach me — or find me on LinkedIn.</p>
+        <div class="contact__mail">
+          <a class="contact__email" href="mailto:baltwyl18@gmail.com">baltwyl18@gmail.com</a>
+          <button class="btn btn--ghost" id="copyEmail" data-email="baltwyl18@gmail.com">Copy email</button>
+        </div>
+        <ul class="contact__links">
+          <li><a href="https://www.linkedin.com/in/hamza-taweel-423741329" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/Hamza-Taweel" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://wa.me/972595872094" target="_blank" rel="noopener">WhatsApp ↗</a></li>
+          <li><a href="assets/Hamza_Taweel_CV.pdf" download>Download CV ↓</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p>Designed and built by Hamza Taweel · Hebron, Palestine</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
