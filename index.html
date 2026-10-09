@@ -57,7 +57,7 @@
         </p>
         <div class="hero__cta load" style="--d:1.2s">
           <a class="btn btn--solid" href="#work">See my work</a>
-          <a class="btn btn--ghost" href="mailto:baltwyl18@gmail.com">Email me</a>
+          <a class="btn btn--ghost" href="assets/Hamza_Taweel_CV.pdf" download>Download CV</a>
         </div>
         <p class="status load" style="--d:1.35s"><span class="status__dot"></span>Open to frontend roles — remote or on-site</p>
       </div>
@@ -232,62 +232,85 @@
         </article>
       </div>
 
-      <p class="work__more" data-reveal>
-        More on GitHub — <a class="link" href="https://github.com/Hamza-Taweel" target="_blank" rel="noopener">github.com/Hamza-Taweel ↗</a>
-      </p>
+      <a class="ghcta" href="https://github.com/Hamza-Taweel" target="_blank" rel="noopener" data-reveal>
+        <span class="ghcta__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        </span>
+        <span class="ghcta__text">
+          <span class="ghcta__title">More projects on GitHub</span>
+          <span class="ghcta__sub">Source code and smaller builds · <b>github.com/Hamza-Taweel</b></span>
+        </span>
+        <span class="ghcta__btn">Visit my GitHub <span aria-hidden="true">↗</span></span>
+      </a>
     </section>
 
     <!-- PATH -->
     <section class="section wrap path" id="path">
       <header class="section__head" data-reveal>
-        <p class="eyebrow">Experience &amp; education</p>
+        <p class="eyebrow">Education &amp; experience</p>
         <h2 class="section__title">Where I've learned the craft.</h2>
       </header>
 
-      <div class="path__grid">
-        <div class="path__col">
-          <h3 class="path__label" data-reveal>Experience</h3>
-          <article class="entry" data-reveal>
-            <p class="entry__when">Jun – Sep 2026 · 480 hours · Paid program</p>
-            <h4 class="entry__title">Frontend Developer Intern</h4>
-            <p class="entry__org">IzTechValley — Elevate Program by Gaza Sky Geeks</p>
-            <ul class="entry__list">
-              <li>Built responsive landing pages and user interfaces.</li>
-              <li>Built Enzyme, a dietary clinic management platform in Next.js, now used by clinics.</li>
-              <li>Worked with cross-functional teams and nutritional care providers to ship production-ready software.</li>
-              <li>Awarded an official internship certificate and a recommendation letter.</li>
-            </ul>
-          </article>
-          <article class="entry" data-reveal>
-            <p class="entry__when">Feb – Apr 2024 · 3 months</p>
-            <h4 class="entry__title">Network &amp; Python Trainee</h4>
-            <p class="entry__org">Smart University College for Modern Education</p>
-            <ul class="entry__list">
-              <li>Practical training in Python programming and core networking principles.</li>
-              <li>Configured network tools, connection protocols, and infrastructure essentials.</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="path__col">
-          <h3 class="path__label" data-reveal>Education</h3>
-          <article class="entry" data-reveal>
-            <p class="entry__when">Q4 2026 · Six weeks · <span class="live">In progress</span></p>
-            <h4 class="entry__title">Agile MBA — Fully funded scholarship</h4>
-            <p class="entry__org">Chingu</p>
-            <ul class="entry__list">
-              <li>Agile methodologies, leadership, teamwork, and business fundamentals.</li>
-            </ul>
-          </article>
-          <article class="entry" data-reveal>
-            <p class="entry__when">Graduated 2025 · GPA 88%</p>
-            <h4 class="entry__title">BSc Computer Science</h4>
-            <p class="entry__org">Hebron University</p>
-            <ul class="entry__list">
-              <li>Graduation project: Clinical Training Management System for the Faculty of Human Medicine.</li>
-            </ul>
-          </article>
-        </div>
+      <div class="timeline" id="timeline">
+        <span class="timeline__track" aria-hidden="true"><span class="timeline__fill" id="timelineFill"></span></span>
+        <ol>
+          <li class="entry" data-reveal>
+            <div class="entry__meta">
+              <p class="entry__when">Graduated 2025</p>
+              <p class="entry__type">Education</p>
+            </div>
+            <div class="entry__body">
+              <h3 class="entry__title">BSc Computer Science</h3>
+              <p class="entry__org">Hebron University · GPA 88%</p>
+              <ul class="entry__list">
+                <li>Graduation project: Clinical Training Management System for the Faculty of Human Medicine.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="entry" data-reveal>
+            <div class="entry__meta">
+              <p class="entry__when">Feb – Apr 2024</p>
+              <p class="entry__type">Training · 3 months</p>
+            </div>
+            <div class="entry__body">
+              <h3 class="entry__title">Network &amp; Python Trainee</h3>
+              <p class="entry__org">Smart University College for Modern Education</p>
+              <ul class="entry__list">
+                <li>Practical training in Python programming and core networking principles.</li>
+                <li>Configured network tools, connection protocols, and infrastructure essentials.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="entry" data-reveal>
+            <div class="entry__meta">
+              <p class="entry__when">Jun – Sep 2026</p>
+              <p class="entry__type">Experience · 480 hours</p>
+            </div>
+            <div class="entry__body">
+              <h3 class="entry__title">Frontend Developer Intern</h3>
+              <p class="entry__org">IzTechValley — Elevate Program by Gaza Sky Geeks · Paid program</p>
+              <ul class="entry__list">
+                <li>Built responsive landing pages and user interfaces.</li>
+                <li>Built Enzyme, a dietary clinic management platform in Next.js, now used by clinics.</li>
+                <li>Worked with cross-functional teams and nutritional care providers to ship production-ready software.</li>
+                <li>Awarded an official internship certificate and a recommendation letter.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="entry entry--now" data-reveal>
+            <div class="entry__meta">
+              <p class="entry__when">Q4 2026 · <span class="live">Now</span></p>
+              <p class="entry__type">Education · 6 weeks</p>
+            </div>
+            <div class="entry__body">
+              <h3 class="entry__title">Agile MBA — Fully funded scholarship</h3>
+              <p class="entry__org">Chingu</p>
+              <ul class="entry__list">
+                <li>Agile methodologies, leadership, teamwork, and business fundamentals.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -330,8 +353,8 @@
       <div class="contact__card" data-reveal>
         <svg class="rosette rosette--small" data-rosette viewBox="-100 -100 200 200" aria-hidden="true"></svg>
         <p class="eyebrow">Contact</p>
-        <h2 class="contact__title">Have a role or a project in mind?</h2>
-        <p class="contact__sub">Email is the fastest way to reach me — or find me on LinkedIn.</p>
+        <h2 class="contact__title">Hiring a frontend developer?</h2>
+        <p class="contact__sub">I'm open to frontend roles, remote or on-site. Email is the fastest way to reach me — or find me on LinkedIn.</p>
         <div class="contact__mail">
           <a class="contact__email" href="mailto:baltwyl18@gmail.com">baltwyl18@gmail.com</a>
           <button class="btn btn--ghost" id="copyEmail" data-email="baltwyl18@gmail.com">Copy email</button>

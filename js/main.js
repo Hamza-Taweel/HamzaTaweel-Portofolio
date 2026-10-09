@@ -181,6 +181,9 @@
   const toggle = document.getElementById("navToggle");
   let lastY = window.scrollY;
   const heroText = document.querySelector(".hero__text");
+  const timeline = document.getElementById("timeline");
+  const timelineFill = document.getElementById("timelineFill");
+  const timelineEntries = timeline ? [...timeline.querySelectorAll(".entry")] : [];
   const wide = window.matchMedia("(min-width: 961px)");
 
   const onScroll = () => {
@@ -191,6 +194,15 @@
       heroText.style.transform = `translate3d(0, ${y * -0.08}px, 0)`;
       heroText.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.9)));
       if (visual) visual.style.transform = `translate3d(0, ${y * 0.12}px, 0)`;
+    }
+
+    // timeline track fills toward a line ~two-thirds down the screen
+    if (timeline) {
+      const r = timeline.getBoundingClientRect();
+      const reach = window.innerHeight * 0.65 - r.top;
+      const p = reduceMotion ? 1 : Math.min(1, Math.max(0, reach / r.height));
+      timelineFill.style.transform = `scaleY(${p})`;
+      timelineEntries.forEach((el) => el.classList.toggle("is-passed", reduceMotion || reach > el.offsetTop + 10));
     }
 
     const max = document.documentElement.scrollHeight - window.innerHeight;
