@@ -2,6 +2,8 @@
 
 Personal portfolio of Hamza Taweel, frontend developer from Hebron, Palestine.
 
+Live: https://hamza-taweel.vercel.app
+
 Plain HTML, CSS, and JavaScript — no build step. Open `index.html` in a browser, or serve the folder with any static host.
 
 - `index.html` — content
