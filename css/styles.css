@@ -28,6 +28,12 @@
 
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 
+/* Lenis smooth scroll takes over from native smooth scrolling */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
 body {
   margin: 0;
   background: var(--ink);

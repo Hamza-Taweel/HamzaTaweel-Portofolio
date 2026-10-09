@@ -2,6 +2,38 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const SVG = "http://www.w3.org/2000/svg";
 
+  /* ---------- smooth, weighted scrolling ---------- */
+
+  let lenis = null;
+  if (window.Lenis && !reduceMotion) {
+    lenis = new window.Lenis({
+      lerp: 0.075,          // lower = slower, silkier glide
+      wheelMultiplier: 0.9,
+      smoothWheel: true,
+    });
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+  }
+
+  // in-page links glide to their section instead of jumping
+  document.querySelectorAll('a[href^="#"]:not(.skip)').forEach((a) => {
+    a.addEventListener("click", (e) => {
+      const id = a.getAttribute("href");
+      const target = id === "#top" ? document.body : document.querySelector(id);
+      if (!lenis || !target) return;
+      e.preventDefault();
+      lenis.scrollTo(id === "#top" ? 0 : target, {
+        offset: id === "#top" ? 0 : -80,
+        duration: 1.8,
+        easing: (t) => 1 - Math.pow(1 - t, 4),
+      });
+      history.replaceState(null, "", id);
+    });
+  });
+
   /* ---------- rosette: a 12-point star like the carved door in the portrait ---------- */
 
   const pt = (r, deg) => {
@@ -138,9 +170,19 @@
   const links = document.getElementById("navLinks");
   const toggle = document.getElementById("navToggle");
   let lastY = window.scrollY;
+  const heroText = document.querySelector(".hero__text");
+  const wide = window.matchMedia("(min-width: 961px)");
 
   const onScroll = () => {
     const y = window.scrollY;
+
+    // hero layers drift apart as you leave it — the photo lags behind the text
+    if (!reduceMotion && wide.matches && y < window.innerHeight * 1.2) {
+      heroText.style.transform = `translate3d(0, ${y * -0.08}px, 0)`;
+      heroText.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.9)));
+      if (visual) visual.style.transform = `translate3d(0, ${y * 0.12}px, 0)`;
+    }
+
     const max = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
     nav.classList.toggle("is-solid", y > 20);
