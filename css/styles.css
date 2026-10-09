@@ -849,7 +849,6 @@ a.plate { color: inherit; text-decoration: none; }
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.skill--ai .skill__icon svg { stroke: var(--bloom); }
 .skill__name { font: 500 13.5px/1.3 var(--f-body); color: var(--stone); }
 
 /* ---------- contact ---------- */
