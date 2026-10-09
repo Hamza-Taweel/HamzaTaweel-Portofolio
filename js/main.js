@@ -149,8 +149,8 @@
 
   /* ---------- scroll reveal ---------- */
 
-  // number each skill tag so they arrive one after another
-  document.querySelectorAll(".skillrow .tags").forEach((list) => {
+  // number each skill card so they arrive one after another
+  document.querySelectorAll(".skillgrid").forEach((list) => {
     [...list.children].forEach((li, i) => li.style.setProperty("--t", i));
   });
 

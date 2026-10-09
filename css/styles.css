@@ -765,17 +765,23 @@ a.plate { color: inherit; text-decoration: none; }
 
 /* ---------- skills ---------- */
 
-.skillrows { border-top: 1px solid var(--line); }
-.skillrow {
-  position: relative;
+.skillgroups {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(44px, 5vw, 64px) clamp(24px, 3vw, 40px);
+}
+.skillgroup--wide { grid-column: 1 / -1; }
+
+.skillgroup__head {
+  position: relative;
+  display: flex;
   align-items: center;
-  padding: 26px 0;
+  gap: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
 }
 /* divider drawn as a scalable line so it can sweep in */
-.skillrow::after {
+.skillgroup__head::after {
   content: "";
   position: absolute;
   left: 0;
@@ -785,15 +791,66 @@ a.plate { color: inherit; text-decoration: none; }
   background: var(--line);
   transform-origin: 0 50%;
 }
-.skillrow h3 {
-  font: 500 clamp(19px, 2vw, 22px)/1.25 var(--f-display);
-  transition: color .4s, translate .7s var(--expo);
+.skillgroup__head h3 { font: 500 clamp(20px, 2.2vw, 24px)/1.2 var(--f-display); }
+.skillgroup__head span {
+  padding: 4px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: 400 12px/1 var(--f-mono);
+  color: var(--cedar);
 }
-.skillrow .tags { transition: translate .7s var(--expo); }
-/* hover nudges with `translate`, so it never fights the reveal `transform` or triggers layout */
-.skillrow:hover h3 { color: var(--cedar); translate: 10px 0; }
-.skillrow:hover .tags { translate: 6px 0; }
-.skillrow .tags li:hover { border-color: var(--bloom); color: var(--stone); background: rgba(226, 85, 159, .1); }
+
+.skillgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  gap: 12px;
+}
+
+/* hover uses `translate`/`rotate`/`scale`, so it never fights the reveal `transform` */
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(236, 229, 216, .04), transparent 70%),
+    var(--suit);
+  text-align: center;
+  transition: translate .6s var(--expo), border-color .3s, box-shadow .5s;
+}
+.skill:hover {
+  translate: 0 -5px;
+  border-color: rgba(200, 146, 90, .6);
+  box-shadow: 0 18px 36px -22px rgba(200, 146, 90, .6);
+}
+
+/* limestone plate so every logo keeps its real colours on the dark page */
+.skill__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--stone);
+  box-shadow: inset 0 -2px 0 rgba(13, 24, 48, .12);
+  transition: rotate .7s var(--expo), scale .7s var(--expo);
+}
+.skill:hover .skill__icon { rotate: -8deg; scale: 1.08; }
+.skill__icon img { width: 30px; height: 30px; }
+.skill__icon svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.skill--ai .skill__icon svg { stroke: var(--bloom); }
+.skill__name { font: 500 13.5px/1.3 var(--f-body); color: var(--stone); }
 
 /* ---------- contact ---------- */
 
@@ -842,20 +899,65 @@ a.plate { color: inherit; text-decoration: none; }
 
 .contact__links {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   margin-top: 44px;
-  padding-top: 28px;
+  padding-top: 32px;
   border-top: 1px solid var(--line);
 }
-.contact__links a {
-  font: 500 15px/1 var(--f-mono);
-  color: var(--mortar);
+
+.contact__links > li { min-width: 0; }
+
+.ccard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(13, 24, 48, .45);
   text-decoration: none;
-  transition: color .25s;
+  transition: translate .6s var(--expo), border-color .3s, background-color .3s;
 }
-.contact__links a:hover { color: var(--cedar); }
+.ccard:hover { translate: 0 -4px; border-color: var(--cedar); background: rgba(13, 24, 48, .75); }
+
+.ccard__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--stone);
+  transition: rotate .7s var(--expo);
+}
+.ccard:hover .ccard__icon { rotate: -8deg; }
+.ccard__icon img { width: 22px; height: 22px; }
+.ccard__icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ccard--cv .ccard__icon { background: var(--bloom); }
+
+.ccard__text { display: grid; gap: 3px; min-width: 0; margin-right: auto; }
+.ccard__label { font: 600 15.5px/1.2 var(--f-body); color: var(--stone); }
+.ccard__sub {
+  font: 400 12px/1.3 var(--f-mono);
+  color: var(--mortar);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ccard__arrow { color: var(--mortar); transition: transform .5s var(--expo), color .3s; }
+.ccard:hover .ccard__arrow { color: var(--cedar); transform: translate(2px, -2px); }
+.ccard--cv:hover .ccard__arrow { transform: translateY(3px); }
 
 /* ---------- footer ---------- */
 
@@ -916,34 +1018,32 @@ a.plate { color: inherit; text-decoration: none; }
 .js .section__head.is-in .eyebrow { opacity: 1; transform: none; }
 .js .section__head.is-in .section__title { clip-path: inset(-.2em -.2em -.3em -.2em); transform: none; }
 
-/* skill rows: divider sweeps in, then the title, then each tag in turn */
-.js .skillrow[data-reveal] { opacity: 1; transform: none; }
-.js .skillrow[data-reveal]::after {
+/* skill groups: divider sweeps in, then the heading, then each card in turn */
+.js .skillgroup[data-reveal] { opacity: 1; transform: none; }
+.js .skillgroup[data-reveal] .skillgroup__head::after {
   transform: scaleX(0);
-  transition: transform 1.8s var(--expo) var(--rd, 0s);
+  transition: transform 1.6s var(--expo) var(--rd, 0s);
 }
-.js .skillrow[data-reveal] h3 {
+.js .skillgroup[data-reveal] .skillgroup__head > * {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(14px);
   transition:
-    opacity 1s var(--expo) calc(var(--rd, 0s) + .1s),
-    transform 1.2s var(--expo) calc(var(--rd, 0s) + .1s),
-    color .4s,
-    translate .7s var(--expo);
+    opacity .9s var(--expo) calc(var(--rd, 0s) + .05s),
+    transform 1.1s var(--expo) calc(var(--rd, 0s) + .05s);
 }
-.js .skillrow[data-reveal] .tags li {
+.js .skillgroup[data-reveal] .skill {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(18px) scale(.96);
   transition:
-    opacity .8s var(--expo) calc(var(--rd, 0s) + .2s + var(--t, 0) * 45ms),
-    transform 1s var(--expo) calc(var(--rd, 0s) + .2s + var(--t, 0) * 45ms),
+    opacity .8s var(--expo) calc(var(--rd, 0s) + .15s + var(--t, 0) * 40ms),
+    transform 1.1s var(--expo) calc(var(--rd, 0s) + .15s + var(--t, 0) * 40ms),
+    translate .6s var(--expo),
     border-color .3s,
-    color .3s,
-    background-color .3s;
+    box-shadow .5s;
 }
-.js .skillrow.is-in::after { transform: none; }
-.js .skillrow.is-in h3,
-.js .skillrow.is-in .tags li { opacity: 1; transform: none; }
+.js .skillgroup.is-in .skillgroup__head::after,
+.js .skillgroup.is-in .skillgroup__head > *,
+.js .skillgroup.is-in .skill { opacity: 1; transform: none; }
 
 /* spinning rosettes rest while off screen */
 .rosette.is-paused .rosette__spin { animation-play-state: paused; }
@@ -1004,7 +1104,8 @@ a.plate { color: inherit; text-decoration: none; }
   .ghcta__text { flex: 1 1 220px; }
   .ghcta__btn { width: 100%; justify-content: center; }
 
-  .skillrow { grid-template-columns: 1fr; gap: 14px; }
+  .skillgroups { grid-template-columns: 1fr; }
+  .contact__links { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 560px) {
@@ -1015,6 +1116,8 @@ a.plate { color: inherit; text-decoration: none; }
   .hero__name .line:nth-child(2) { padding-left: .3em; }
   .facts div { grid-template-columns: 1fr; gap: 4px; }
   .plate { aspect-ratio: 4 / 3.4; }
+  .skillgrid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+  .contact__links { grid-template-columns: 1fr; }
 }
 
 /* ---------- reduced motion ---------- */
@@ -1034,7 +1137,7 @@ a.plate { color: inherit; text-decoration: none; }
   .js [data-reveal],
   .js .section__head[data-reveal] .eyebrow,
   .js .section__head[data-reveal] .section__title,
-  .js .skillrow[data-reveal] h3,
-  .js .skillrow[data-reveal] .tags li,
-  .js .skillrow[data-reveal]::after { opacity: 1; transform: none; clip-path: none; transition-delay: 0s; }
+  .js .skillgroup[data-reveal] .skillgroup__head > *,
+  .js .skillgroup[data-reveal] .skillgroup__head::after,
+  .js .skillgroup[data-reveal] .skill { opacity: 1; transform: none; clip-path: none; transition-delay: 0s; }
 }
